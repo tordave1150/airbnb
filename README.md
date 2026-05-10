@@ -1,63 +1,35 @@
-# 🏠 Airbnb Analytics Dashboard
+# 🏨 Global Hospitality Intelligence Suite
 
-A multi-page Streamlit dashboard powered by MongoDB's **sample_airbnb** dataset.
+A high-performance, minimalist analytics engine powered by MongoDB's **sample_airbnb** dataset. This suite provides deep-dive market intelligence into global hospitality trends, pricing strategies, and guest behavior.
 
-## Pages
+## 🔍 How to Explore
 
-| Page | Description |
-|------|-------------|
-| 🏠 **Overview** | KPIs, global distribution, room types, price & review summaries |
-| 💰 **Price Analysis** | Pricing by geography, property type, bedrooms, fee breakdown |
-| ⭐ **Reviews & Ratings** | Category scores radar, superhost impact, rating distributions |
-| 👤 **Host Analysis** | Superhost vs regular, multi-listing strategies, response rates |
-| 🌍 **Geographic Analysis** | Choropleth maps, market treemaps, scatter geo, availability |
-| 🏡 **Amenities & Features** | Top amenities, price premium analysis, bed/capacity specs |
+This suite is designed for interactive market research. Follow this flow to extract the most value:
 
-## Setup
+### 1. Market Selection (Global Sidebar)
+Start by narrowing your focus using the **Global Sidebar** found on every page:
+- **Country & Market**: Focus on specific geographic regions.
+- **Property & Room Type**: Compare boutique apartments vs. luxury villas.
+- **Price Range**: Filter out outliers to focus on specific market segments.
 
-### 1. Install dependencies
-```bash
-pip install -r requirements.txt
-```
+### 2. High-Level Overview (Home)
+Monitor core KPIs at a glance:
+- **Total Listings**: Market volume.
+- **Median Price**: The primary baseline for nightly rates.
+- **Guest Sentiment**: Average review scores scaled for quality assessment.
 
-### 2. Configure MongoDB connection
-The dashboard connects to MongoDB Atlas using the sample dataset connection.
-Update the connection string in each file if using your own Atlas cluster:
+### 3. Specialized Analysis Modules
+Navigate through the suite to deep-dive into specific areas:
+- **💰 Pricing Strategy**: Analyze how price scales with bedrooms and fees. Identify value drivers via the Price vs. Quality scatter plot.
+- **⭐ Guest Satisfaction**: Understand what drives 5-star reviews. Use the Radar Chart to identify category-specific performance (Cleanliness, Communication, etc.).
+- **👤 Host Insights**: Compare Superhost performance vs. regular hosts. Analyze multi-listing professional host strategies.
+- **🌍 Market Geography**: Use interactive choropleth maps to identify high-density hubs and pricing benchmarks across countries.
+- **🏡 Features & Amenities**: Identify which amenities command the highest price premiums in the current market.
 
-```python
-# Replace this line in each page file:
-pymongo.MongoClient("mongodb+srv://m001-student:m001-mongodb-basics@sandbox.mongodb.net/")
+## 🛠️ Performance Features
+- **Interactive Visuals**: Every Plotly chart supports hovering for raw data, zooming, and isolated filtering.
+- **Minimalist Aesthetic**: Engineered for focus. No visual noise, just data-driven insights.
+- **Real-time Caching**: Optimized for speed with intelligent data caching.
 
-# With your Atlas connection string:
-pymongo.MongoClient("mongodb+srv://<username>:<password>@<cluster>.mongodb.net/")
-```
-
-Make sure the `sample_airbnb` database with `listingsAndReviews` collection is loaded.
-You can load it from MongoDB Atlas → Browse Collections → Load Sample Dataset.
-
-### 3. Run the dashboard
-```bash
-streamlit run Overview.py
-```
-
-## Project Structure
-
-```
-airbnb_dashboard/
-├── Overview.py                      # Main page
-├── requirements.txt
-├── README.md
-└── pages/
-    ├── 1_💰_Price_Analysis.py
-    ├── 2_⭐_Reviews_&_Ratings.py
-    ├── 3_👤_Host_Analysis.py
-    ├── 4_🌍_Geographic_Analysis.py
-    └── 5_🏡_Amenities_&_Features.py
-```
-
-## Features
-- **Global sidebar filters** on each page (country, room type, price range, etc.)
-- **Interactive Plotly charts** — hover, zoom, click
-- **Cached MongoDB queries** (5-min TTL) for performance
-- **Responsive layout** using Streamlit columns
-- Custom CSS with Airbnb-inspired color palette
+---
+*Powered by MongoDB Atlas & Streamlit*
